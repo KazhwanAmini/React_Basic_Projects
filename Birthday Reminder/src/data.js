@@ -5,6 +5,7 @@ export default [
     age: 29,
     image:
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg',
+    gender: 'Female',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export default [
     age: 32,
     image:
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-3_rxtqvi.jpg',
+    gender: 'Female',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export default [
     age: 36,
     image:
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883423/person-4_t9nxjt.jpg',
+    gender: 'Male',
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export default [
     age: 34,
     image:
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg',
+    gender: 'Male',
   },
   {
     id: 5,
@@ -33,5 +37,14 @@ export default [
     age: 29,
     image:
       'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg',
+    gender: 'Female',
   },
-];
+  {
+    id: 6,
+    name: 'Kazhwan',
+    age: 16,
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png',
+    gender: 'Male',
+  },
+]

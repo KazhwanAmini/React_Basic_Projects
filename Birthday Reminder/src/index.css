@@ -167,7 +167,17 @@ main {
   object-fit: cover;
   border-radius: 50%;
   box-shadow: var(--light-shadow);
+  border: solid;
 }
+
+.person .Male {
+  border-color: var(--clr-grey-8);
+}
+
+.person .Female {
+  border-color: var(--clr-red-light);
+}
+
 .person h4 {
   margin-bottom: 0.35rem;
 }
