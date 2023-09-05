@@ -15,7 +15,18 @@ function App() {
     if (!name) {
       showAlert(true, 'danger', 'please enter value')
     } else if (name && isEditting) {
-      // deal with edit
+      setList(
+        list.map((item) => {
+          if (item.id === editID) {
+            return { ...item, title: name }
+          }
+          return item
+        })
+      )
+      setName('')
+      setEditID(null)
+      setIsEditting(false)
+      showAlert(true,'success','item edited')
     } else {
       setAlert({ show: true, msg: 'item added to the list', type: 'success' })
       const newItem = { id: new Date().getTime().toString(), title: name }
@@ -33,10 +44,22 @@ function App() {
     setList([])
   }
 
+  const removeItem = (id) => {
+    showAlert(true, 'danger', 'item removed')
+    setList(list.filter((item) => item.id !== id))
+  }
+
+  const editItem = (id) => {
+    const specificItem = list.find((item) => item.id === id)
+    setIsEditting(true)
+    setEditID(id)
+    setName(specificItem.title)
+  }
+
   return (
     <section className='section-center'>
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
+        {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
         <h3>grocery bud</h3>
         <div className='form-control'>
           <input
@@ -53,7 +76,7 @@ function App() {
       </form>
       {list.length > 0 && (
         <div className='grocery-container'>
-          <List items={list} />
+          <List items={list} removeItem={removeItem} editItem={editItem} />
           <button className='clear-btn' onClick={clearList}>
             clear items
           </button>
