@@ -3,9 +3,18 @@ import List from './List'
 import Alert from './Alert'
 import { type } from '@testing-library/user-event/dist/type'
 
+const getLocaleStorage = () => {
+  let list = localStorage.getItem('list')
+  if (list) {
+    return JSON.parse(localStorage.getItem('list'))
+  } else {
+    return []
+  }
+}
+
 function App() {
   const [name, setName] = useState('')
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocaleStorage())
   const [isEditting, setIsEditting] = useState(false)
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: '', type: '' })
@@ -26,7 +35,7 @@ function App() {
       setName('')
       setEditID(null)
       setIsEditting(false)
-      showAlert(true,'success','item edited')
+      showAlert(true, 'success', 'item edited')
     } else {
       setAlert({ show: true, msg: 'item added to the list', type: 'success' })
       const newItem = { id: new Date().getTime().toString(), title: name }
@@ -55,6 +64,10 @@ function App() {
     setEditID(id)
     setName(specificItem.title)
   }
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list))
+  }, [list])
 
   return (
     <section className='section-center'>
