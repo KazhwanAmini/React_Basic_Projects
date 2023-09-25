@@ -274,6 +274,8 @@ Stripe Styles
   .hero-images {
     display: block;
     justify-self: center;
+    margin-top: 70px;
+
   }
   .phone-img {
     width: 12rem;
